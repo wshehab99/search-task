@@ -77,7 +77,7 @@ class DbHelper {
   Future<List<Note>> getNote(String text) async {
     Database db = await getDbInstance();
     List<Map<String, dynamic>> mapList = await db.query(Constants.TABLE_NAME,
-        where: '${Constants.COL_NOTE} like $text %');
+        where: "${Constants.COL_NOTE} LIKE '%${text}%'");
     return mapList.map((e) => Note.fromMap(e)).toList();
   }
 }

@@ -76,10 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 CupertinoSearchTextField(
                   controller: _searchController,
                   borderRadius: BorderRadius.circular(15),
-                  onChanged: (value) {
-                    setState(() {
-                      searchNote(value);
-                    });
+                  onChanged: (value) async {
+                    await searchNote(value);
                   },
                 ),
                 viewList(),
